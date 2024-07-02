@@ -1,3 +1,15 @@
+### 07/02/2024
+
+1:45 PM
+
+Printed the base frame, damn it's big
+
+Going to first check if the different brand VL53L0X sensors have different addresses... I hope so
+
+Also I'm using a full Raspberry Pi desktop this time so gotta make sure remote SSH works too
+
+---
+
 ### 07/01/2024
 
 11:10 AM
