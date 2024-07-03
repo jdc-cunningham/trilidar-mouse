@@ -19,8 +19,8 @@ const moveCursor = (x, y) => {
   if (x > max_x || y > max_y) return;
   if (x < 0 || y < 0) return;
 
-  cursorBox.style.left = init_x + 'px';
-  cursorBox.style.top = init_y + 'px';
+  cursorBox.style.left = x + 'px';
+  cursorBox.style.top = y + 'px';
 }
 
 const resetCursor = () => {
@@ -28,6 +28,9 @@ const resetCursor = () => {
 }
 
 const round = (val) => Math.round(val * 100) / 100;
+
+// this runs everytime your finger goes in the sensor area
+let calibrated = false;
 
 // assumes an equilateral triangle layout where the points are treated as: top, left, right
 // top, left, right
@@ -42,8 +45,12 @@ const updateCursor = (data) => {
     // finger in area
     if (topSensorVal < 6 || leftSensorVal < 6 || rightSensorVal < 6) {
       console.log('finger detected', [topSensorVal, leftSensorVal, rightSensorVal]);
-      cursorBox.style.left = leftSensorVal + 'px';
-      cursorBox.style.top = topSensorVal + 'px';
+
+      if (!calibrated) {
+
+      } else {
+
+      }
 
       const ts_y = round(topSensorVal);
       const degToRad = ((60 * Math.PI) / 180);
@@ -52,17 +59,19 @@ const updateCursor = (data) => {
       const rs_x = round(rightSensorVal * Math.cos(degToRad));
       const rs_y = round(rightSensorVal * Math.sin(degToRad));
 
-      console.log(rs_x - ls_x);
-      let xDiff = rs_x - ls_x;
+      let xDiff = ls_x - rs_x;
+      let yDiff = ts_y - ((ls_y + rs_y) / 2);
 
-      prev_cursor_x += xDiff * 10;
+      console.log('x,y', xDiff, yDiff);
 
-      console.log('prev', prev_cursor_x);
+      prev_cursor_x += xDiff * 25;
+      prev_cursor_y += yDiff * 10 * -1; // invert
 
-      moveCursor(prev_cursor_x, 0);
+      moveCursor(prev_cursor_x, prev_cursor_y);
     } else {
       prev_cursor_x = init_x;
       prev_cursor_y = init_y;
+      calibrated = false;
       resetCursor();
     }
   } else {
