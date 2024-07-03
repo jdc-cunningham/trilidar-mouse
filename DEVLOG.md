@@ -18,7 +18,13 @@ Also considering adding the two buttons as a 3D printed add on thing but I'll fo
 
 Max distance is 3" per sensor towards middle
 
+3:58 PM
 
+Finally past the dumb sensor mapping stuff with buses/addresses
+
+Engaging the Kornholio
+
+Gonna do something easy real quick (the web interface/socket bridge) then back to the trig summing
 
 ---
 
