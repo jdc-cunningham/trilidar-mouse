@@ -26,6 +26,14 @@ Engaging the Kornholio
 
 Gonna do something easy real quick (the web interface/socket bridge) then back to the trig summing
 
+6:21 PM
+
+I have to get ready to drive UberEats/DoorDash soon
+
+Gonna call it here for now, I need to think about the math part more
+
+I'll work on the video
+
 ---
 
 ### 07/02/2024
