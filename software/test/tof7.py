@@ -99,32 +99,38 @@ if timing < 20000:
     timing = 20000
 print("Timing %d ms" % (timing/1000))
 
-count = 0
+d1a = []
+d2a = []
+d3a = []
+
+def to_in(cm):
+  return cm * 0.393701
 
 while True:
-    count += 1
-    distance1 = tof.get_distance()
-    # if distance > 0:
-    #     print("sensor %d - %d mm, %d cm, iteration %d" % (1, distance, (distance/10), count))
-    # else:
-    #     print("%d - Error" % 1)
+    d1 = to_in(tof.get_distance() / 10)
+    d2 = to_in(tof1.get_distance() / 10)
+    d3 = to_in(tof2.get_distance() / 10)
 
-    distance2 = tof1.get_distance()
+    if (len(d1a) < 3):
+        d1a.append(d1)
+        d2a.append(d2)
+        d3a.append(d3)
+    else:
+        d1a.pop(0)
+        d2a.pop(0)
+        d3a.pop(0)
 
-    # if distance > 0:
-    #     print("sensor %d - %d mm, %d cm, iteration %d" % (2, distance, (distance/10), count))
-    # else:
-    #     print("%d - Error" % 2)
+        d1a.append(d1)
+        d2a.append(d2)
+        d3a.append(d3)
 
-    distance3 = tof2.get_distance()
-    # if distance > 0:
-    #     print("sensor %d - %d mm, %d cm, iteration %d" % (3, distance, (distance/10), count))
-    # else:
-    #     print("%d - Error" % 3)
+        d1av = round((sum(d1a) / 3), 2)
+        d2av = round((sum(d2a) / 3), 2)
+        d3av = round((sum(d3a) / 3), 2)
 
-    print('top ' + str(distance1) + ', ' + 'left ' + str(distance2) + ', ' + 'right ' + str(distance3))
+        print('t ' + str(d1av) + ', ' + 'l ' + str(d2av) + ', ' + 'r ' + str(d3av))
 
-    time.sleep(timing/1000000.00)
+    time.sleep(0.1)
 
 tof.stop_ranging()
 GPIO.output(sensor1_shutdown, GPIO.LOW)
