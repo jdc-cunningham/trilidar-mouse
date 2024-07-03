@@ -9,16 +9,17 @@ const connectToRaspberryPi = () => {
 
   // connection opened, send messages to robot
   socket.addEventListener('open', function (event) {
+    socketStatus.innerText = 'connected'
  
     // keep connection to esp01 alivew
     socketInterval = setInterval(() => {
       socket.send('poll');
-    }, 1000);
+    }, 100);
   });
  
   // listen for messages from floating navigation sensor assembly
   socket.addEventListener('message', function (event) {
-    const msg = JSON.parse(event.data);
+    const msg = event.data;
     console.log(msg);
   });
  
