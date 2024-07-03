@@ -1,3 +1,15 @@
+### 07/03/2024
+
+- [ ] create code that outputs x, y values
+- [ ] create basic website that is the visual mouse position
+- [ ] bridge the two with a websocket
+
+Later
+
+- [ ] figure out how to make a USB mouse, bluetooth maybe too
+
+---
+
 ### 07/02/2024
 
 1:45 PM
