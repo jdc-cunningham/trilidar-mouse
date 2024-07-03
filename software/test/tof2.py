@@ -7,9 +7,9 @@ sys.path.append('/home/pi/projects/trilidar-mouse/software/test/VL53L0X-python')
 from python import VL53L0X
 
 # Create a VL53L0X object
-tof1 = VL53L0X.VL53L0X(i2c_bus=5,i2c_address=0x29) # top
+tof1 = VL53L0X.VL53L0X(i2c_bus=1,i2c_address=0x29) # top
 tof2 = VL53L0X.VL53L0X(i2c_bus=0,i2c_address=0x29) # right
-tof3 = VL53L0X.VL53L0X(i2c_bus=1,i2c_address=0x29) # left
+tof3 = VL53L0X.VL53L0X(i2c_bus=5,i2c_address=0x29) # left
 
 # I2C Address can change before tof.open()
 # tof.change_address(0x32)
