@@ -8,6 +8,18 @@ Later
 
 - [ ] figure out how to make a USB mouse, bluetooth maybe too
 
+11:00 AM
+
+Back on
+
+Thinking about how to make it smaller
+
+Also considering adding the two buttons as a 3D printed add on thing but I'll focus on making this thing work
+
+Max distance is 3" per sensor towards middle
+
+
+
 ---
 
 ### 07/02/2024
