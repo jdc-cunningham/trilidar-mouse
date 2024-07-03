@@ -26,6 +26,11 @@ import time
 import VL53L0X
 import RPi.GPIO as GPIO
 
+from threading import Thread
+from ws import WebSocket
+
+ws = WebSocket()
+
 # GPIO for Sensor 1 shutdown pin
 sensor1_shutdown = 17
 # GPIO for Sensor 2 shutdown pin
@@ -106,6 +111,8 @@ d3a = []
 def to_in(cm):
   return cm * 0.393701
 
+Thread(target=ws.start).start()
+
 while True:
     d1 = to_in(tof.get_distance() / 10)
     d2 = to_in(tof1.get_distance() / 10)
@@ -128,7 +135,9 @@ while True:
         d2av = round((sum(d2a) / 3), 2)
         d3av = round((sum(d3a) / 3), 2)
 
-        print('t ' + str(d1av) + ', ' + 'l ' + str(d2av) + ', ' + 'r ' + str(d3av))
+        # print('t ' + str(d1av) + ', ' + 'l ' + str(d2av) + ', ' + 'r ' + str(d3av))
+        if (ws.socket != None):
+            ws.msg = str(d1av) + ',' + str(d2av) + ',' + str(d3av)
 
     time.sleep(0.1)
 
