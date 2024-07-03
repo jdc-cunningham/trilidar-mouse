@@ -20,7 +20,7 @@ const connectToRaspberryPi = () => {
   // listen for messages from floating navigation sensor assembly
   socket.addEventListener('message', function (event) {
     const msg = event.data;
-    console.log(msg);
+    updateCursor(msg);
   });
  
   socket.addEventListener('close', function (event) {
