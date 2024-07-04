@@ -2,6 +2,8 @@
 
 <img src="./tl1.JPG"/>
 
+<img src="./trilidar-mouse-wiring.png"/>
+
 <img src="./trilidar-mouse-concept.JPG"/>
 
 <img src="./cones.JPG"/>
