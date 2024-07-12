@@ -1,6 +1,6 @@
 ### Trilidar Mouse
 
-Not lidar... they're ToF ranging sensors
+Not lidar... they're (infrared) ToF ranging sensors
 
 <img src="./tl1.JPG"/>
 
